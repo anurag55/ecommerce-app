@@ -1,0 +1,25 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5px;
+    margin: 20px 50px;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    .header-item{
+      margin: 5px 5px;
+      cursor: pointer;
+      
+      .header-image{
+        width: 100px;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 2px 2px;
+        text-align: center;
+      }
+    }
+}
