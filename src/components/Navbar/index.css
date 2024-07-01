@@ -11,7 +11,7 @@
   margin-left: 20px;
 }
 .menu {
-  width: 25%;
+  width: 32%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,12 +28,13 @@
     margin-left:15px;
   }
   
-  li a {
+  li a, li button {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    background-color: #2874f0;
   }
 
   li img {
@@ -43,7 +44,7 @@
     margin: 10px auto;
   }
 
-  li a:hover, img:hover {
+  li a:hover, img:hover, button:hover {
     background-color: white;
     color: #2874f0;
     border-radius: 25px;

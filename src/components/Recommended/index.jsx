@@ -1,50 +1,18 @@
 import React from "react";
+import Product from "./Product";
 
 import "./Recommended.css";
-import { useNavigate } from "react-router-dom";
 
-export default function Recommended() {
-  const navigate = useNavigate();
+export default function Recommended(props) {
+  const products = props.products;
+
   return (
     <div className="recommended">
-      <h1>Recommended</h1>
+      <h1>Products</h1>
       <div className="products">
-        <div className="product">
-          <img
-            src="products/product1.jpg"
-            alt="Product 1"
-            className="product-image"
-          />
-          <p className="product-details">Text</p>
-          <button className="btn btn-dark" onClick={(e) => navigate("/products")}>Know More</button>
-        </div>
-        <div className="product">
-          <img
-            src="products/product1.jpg"
-            alt="Product"
-            className="product-image"
-          />
-          <p className="product-details">Text</p>
-          <button className="btn btn-dark" onClick={(e) => navigate("/products")}>Know More</button>
-        </div>
-        <div className="product">
-          <img
-            src="products/product1.jpg"
-            alt="Product"
-            className="product-image"
-          />
-          <p className="product-details">Text</p>
-          <button className="btn btn-dark" onClick={(e) => navigate("/products")}>Know More</button>
-        </div>
-        <div className="product">
-          <img
-            src="products/product1.jpg"
-            alt="Product"
-            className="product-image"
-          />
-          <p className="product-details">Text</p>
-          <button className="btn btn-dark" onClick={(e) => navigate("/products")}>Know More</button>
-        </div>
+        {products.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );

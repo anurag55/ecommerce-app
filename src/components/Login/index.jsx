@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./Login.css";
 
-export default function Login() {
+export default function Login(props) {
   const [mobileNo, setMobileNo] = useState("");
   const [buttonText, setButtonText] = useState("Request OTP");
   const [otp, setOtp] = useState("");
@@ -13,21 +13,35 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const { setIsLoggedIn } = props;
 
   function handleSubmit(event) {
     event.preventDefault();
     if (isOtpVerified && password !== '') {
+      setIsLoggedIn(true);
       navigate("/home");
       console.log("You are logged in");
     }
     else if (originalOtp === '') {
-      setOriginalOtp(Math.floor(100000 + Math.random() * 900000));
-      setIsOtpSent(true);
-      setButtonText("Verify OTP");
+      if (mobileNo.length !== 10) {
+        alert("10 numbers are required");
+        return;
+      } else {
+        setOriginalOtp(Math.floor(100000 + Math.random() * 900000));
+        setIsOtpSent(true);
+        setButtonText("Verify OTP");
+      }
+      
     }
-    else if (originalOtp !== '' && originalOtp === parseInt(otp)) {
-      setIsOtpVerified(true);
-      setButtonText("Login");
+    else if (originalOtp !== '') {
+      console.log(originalOtp, otp);
+      if (originalOtp !== parseInt(otp)) {
+        alert("Invalid OTP");
+        return;
+      } else {
+        setIsOtpVerified(true);
+        setButtonText("Login");
+      }
     }
   }
   
