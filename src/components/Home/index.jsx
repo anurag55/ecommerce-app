@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from './../../store/productSlice';
+import { RotatingLines } from "react-loader-spinner";
 
 import Header from "./Header";
 import CarouselComponent from "./Carousel";
@@ -20,7 +21,17 @@ export default function Home() {
 
   return (
     <div>
-      {productStatus === 'loading' && <div>Loading...</div>}
+      {productStatus === 'loading' && 
+        <RotatingLines
+          visible={true}
+          height="96"
+          width="96"
+          color="grey"
+          strokeWidth="5"
+          animationDuration="0.75"
+          ariaLabel="rotating-lines-loading"
+        />
+      }
       {productStatus === 'failed' && <div>{error}</div>}
       {productStatus === 'succeeded' && (
         <>

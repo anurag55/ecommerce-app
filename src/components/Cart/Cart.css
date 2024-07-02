@@ -32,7 +32,7 @@
 }
 
 .cart-table button {
-  background-color: #ff4d4d;
+  background-color: #e65a0f;
   color: white;
   padding: 5px 10px;
   border: none;
@@ -41,7 +41,7 @@
 }
 
 .cart-table button:hover {
-  background-color: #ff3333;
+  background-color: black;
 }
 
 .total-price {
